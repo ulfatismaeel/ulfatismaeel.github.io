@@ -1,35 +1,547 @@
 <!DOCTYPE html>
-<!-- saved from url=(0186)https://li.protechts.net/index.html?ts=1786950063165&r_id=AAZZOLudYHTiZozBMP2E2A%3D%3D&app_id=PXdOjV695v&uc=scraping&d_id=29aaadf0b4eeca2c67b2faf636133696d62cbb608edbc8a129f4b32620e99004 -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <script>
-        function getDecodedQueryParams(queryString) {
-            var params = {};
-            var query = queryString.substring(1);
-            var vars = query.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                try {
-                    var pair = vars[i].split('=');
-                    params[pair[0]] = decodeURIComponent(pair[1]);
-                } catch(e) {
-                    // ignore
-                }
-            }
-            return params;
-        }
-        var params = getDecodedQueryParams(window.location.search);
-        var appId = params['app_id'];
-        window._pxParam2 = params['d_id'];
-        window._pxParam3 = params['r_id'];
-        window._pxParam4 = params['uc'];
-        window._pxParam5 = params['pt'];
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ulfat Ismaeel — Automation Developer</title>
+<meta name="description" content="I build machines that do the work nobody wants to do. n8n, APIs and AI pipelines, self-hosted. Three systems running today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#EEF1F4;
+  --panel:#FFFFFF;
+  --ink:#16202B;
+  --muted:#57697A;
+  --rule:#C6D1DA;
+  --rule-soft:#DEE5EB;
+  --signal:#A34E00;
+  --signal-soft:#F4E3D2;
+  --wire:#0E6F79;
+  --grid:rgba(22,32,43,.055);
 
-        // Local sensor injection
-        var s = document.createElement('script');
-        s.src = 'https://client.protechts.net/' + appId + '/main.min.js';
-        document.head.appendChild(s);
-    </script><script src="./main.min.js"></script>
+  --display:"IBM Plex Sans Condensed",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --urdu:"Noto Nastaliq Urdu",serif;
+
+  --edge:clamp(1.25rem,5vw,5rem);
+  --maxw:74rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#111A22;
+    --panel:#18222C;
+    --ink:#E4EBF1;
+    --muted:#8CA0B1;
+    --rule:#2B3845;
+    --rule-soft:#222E3A;
+    --signal:#FFB055;
+    --signal-soft:#2E2418;
+    --wire:#38B4BD;
+    --grid:rgba(228,235,241,.05);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font:400 clamp(1rem,.96rem + .2vw,1.0625rem)/1.6 var(--body);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:2.25rem 2.25rem,2.25rem 2.25rem;
+}
+::selection{background:var(--signal);color:var(--ground)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--edge)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:1px solid var(--rule);
+  background:color-mix(in srgb,var(--ground) 82%,transparent);
+  backdrop-filter:blur(6px);
+  position:sticky;top:0;z-index:10;
+}
+.masthead .wrap{
+  display:flex;align-items:baseline;gap:1rem;
+  padding-block:.9rem;flex-wrap:wrap;
+}
+.wordmark{
+  font:700 1rem/1 var(--display);
+  letter-spacing:.14em;text-transform:uppercase;
+  margin:0;
+}
+.masthead .role{
+  font:400 .8125rem/1 var(--mono);color:var(--muted);
+  letter-spacing:.02em;
+}
+.masthead .live{margin-left:auto}
+
+/* running light */
+.live{
+  font:500 .75rem/1 var(--mono);
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);
+  display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;
+}
+.live::before{
+  content:"";width:.5rem;height:.5rem;border-radius:50%;
+  background:var(--signal);
+  box-shadow:0 0 0 0 color-mix(in srgb,var(--signal) 60%,transparent);
+  animation:beat 2.4s ease-out infinite;
+}
+@keyframes beat{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--signal) 55%,transparent)}
+  70%{box-shadow:0 0 0 .55rem transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(3rem,8vw,6.5rem) clamp(2rem,5vw,3.5rem)}
+.hero h1{
+  font:700 clamp(2.5rem,7.5vw,5.25rem)/.98 var(--display);
+  letter-spacing:-.015em;
+  margin:0 0 1.25rem;
+  max-width:26ch;
+  text-wrap:balance;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--signal);
+}
+.hero .lede{
+  max-width:52ch;margin:0 0 2rem;color:var(--muted);
+  font-size:1.0625rem;
+}
+.hero .lede strong{color:var(--ink);font-weight:600}
+
+.stats{
+  display:flex;flex-wrap:wrap;gap:0;
+  border:1px solid var(--rule);
+  background:var(--panel);
+}
+.stats div{
+  flex:1 1 8rem;padding:.9rem 1.1rem;
+  border-right:1px solid var(--rule-soft);
+}
+.stats div:last-child{border-right:0}
+.stats dt{
+  font:400 .6875rem/1 var(--mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 .4rem;
+}
+.stats dd{margin:0;font:600 1.375rem/1 var(--display)}
+
+/* ---------- signature: the wiring diagram ---------- */
+.schematic{
+  margin-block:clamp(2.5rem,6vw,4rem);
+  border:1px solid var(--rule);
+  background:var(--panel);
+}
+.schematic figcaption{
+  display:flex;gap:.75rem;align-items:baseline;flex-wrap:wrap;
+  padding:.85rem 1.1rem;border-bottom:1px solid var(--rule-soft);
+  font:400 .75rem/1.4 var(--mono);color:var(--muted);
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.schematic figcaption b{color:var(--ink);font-weight:500;text-transform:none;letter-spacing:0}
+.schematic .scroller{overflow-x:auto;padding:1.4rem 1.1rem 1.6rem}
+.schematic svg{display:block;min-width:46rem;width:100%;height:auto}
+
+.n-box{fill:var(--panel);stroke:var(--ink);stroke-width:1.25}
+.n-box.accent{stroke:var(--signal)}
+.n-label{font:500 11px/1 var(--mono);fill:var(--ink)}
+.n-sub{font:400 9.5px/1 var(--mono);fill:var(--muted)}
+.wire{fill:none;stroke:var(--rule);stroke-width:1.5}
+.wire.loop{stroke:var(--wire);stroke-dasharray:4 3}
+.pulse{
+  fill:none;stroke:var(--signal);stroke-width:2;
+  stroke-linecap:round;
+  stroke-dasharray:14 620;
+  animation:run 5.2s linear infinite;
+}
+@keyframes run{from{stroke-dashoffset:634}to{stroke-dashoffset:0}}
+.tick{font:400 9px/1 var(--mono);fill:var(--muted);letter-spacing:.06em}
+@media (prefers-reduced-motion:reduce){
+  .pulse{animation:none;stroke-dasharray:none;opacity:.35}
+  .live::before{animation:none}
+}
+
+/* ---------- systems ---------- */
+.section-head{
+  display:flex;align-items:baseline;gap:1rem;
+  border-top:1px solid var(--rule);
+  padding-top:.85rem;margin-top:clamp(2.5rem,6vw,4rem);
+}
+.section-head h2{
+  font:700 .8125rem/1 var(--mono);letter-spacing:.14em;
+  text-transform:uppercase;margin:0;
+}
+.section-head p{margin:0;color:var(--muted);font-size:.875rem}
+
+.system{
+  border-bottom:1px solid var(--rule-soft);
+  padding-block:clamp(2rem,4vw,2.75rem);
+  display:grid;gap:clamp(1.25rem,3vw,2.5rem);
+  grid-template-columns:1fr;
+}
+@media (min-width:60rem){
+  .system{grid-template-columns:minmax(0,1.55fr) minmax(15rem,1fr)}
+}
+.system h3{
+  font:600 clamp(1.5rem,3.2vw,2.125rem)/1.1 var(--display);
+  margin:0 0 .6rem;letter-spacing:-.01em;
+}
+.tag{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font:500 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--signal);background:var(--signal-soft);
+  border:1px solid color-mix(in srgb,var(--signal) 30%,transparent);
+  padding:.35rem .55rem;margin-bottom:.9rem;
+}
+.system dl.qa{margin:0}
+.system dl.qa dt{
+  font:400 .6875rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin:1.1rem 0 .35rem;
+}
+.system dl.qa dt:first-child{margin-top:0}
+.system dl.qa dd{margin:0;max-width:56ch}
+
+.spec{
+  border:1px solid var(--rule);background:var(--panel);
+  font:400 .8125rem/1.5 var(--mono);
+  align-self:start;
+}
+.spec div{
+  display:flex;gap:.75rem;justify-content:space-between;
+  padding:.6rem .8rem;border-bottom:1px solid var(--rule-soft);
+}
+.spec div:last-child{border-bottom:0}
+.spec dt{color:var(--muted);white-space:nowrap}
+.spec dd{margin:0;text-align:right}
+
+/* Nastaliq specimen — the thing that is hard */
+.specimen{
+  margin-top:1.25rem;border:1px solid var(--rule);
+  background:var(--panel);
+}
+.specimen .strip{
+  padding:1.5rem 1.25rem 1.9rem;
+  background:
+    linear-gradient(0deg,color-mix(in srgb,var(--ink) 9%,transparent),transparent 62%);
+}
+.specimen p{
+  margin:0;direction:rtl;text-align:center;
+  font-family:var(--urdu);font-weight:600;
+  font-size:clamp(1.25rem,3.4vw,1.875rem);
+  line-height:2.1;
+}
+.specimen .note{
+  border-top:1px solid var(--rule-soft);
+  padding:.6rem .8rem;margin:0;
+  font:400 .75rem/1.5 var(--mono);color:var(--muted);
+}
+
+/* ---------- method ---------- */
+.method{
+  display:grid;gap:1px;background:var(--rule-soft);
+  border:1px solid var(--rule);
+  grid-template-columns:1fr;
+  margin-top:clamp(1.5rem,4vw,2.25rem);
+}
+@media (min-width:48rem){.method{grid-template-columns:repeat(3,1fr)}}
+.method article{background:var(--panel);padding:1.35rem 1.25rem}
+.method h3{
+  font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--signal);margin:0 0 .65rem;
+}
+.method p{margin:0;font-size:.9375rem;color:var(--ink)}
+
+/* ---------- contact ---------- */
+.contact{padding-block:clamp(3rem,7vw,5rem)}
+.contact h2{
+  font:700 clamp(1.75rem,4.5vw,2.75rem)/1.05 var(--display);
+  margin:0 0 .75rem;letter-spacing:-.01em;max-width:30ch;
+}
+.contact p{margin:0 0 1.75rem;color:var(--muted);max-width:48ch}
+.links{display:flex;flex-wrap:wrap;gap:.6rem}
+.links a{
+  font:500 .875rem/1 var(--mono);letter-spacing:.02em;
+  text-decoration:none;
+  border:1px solid var(--ink);
+  padding:.8rem 1.1rem;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.links a:hover{background:var(--ink);color:var(--ground)}
+.links a.primary{border-color:var(--signal);color:var(--signal)}
+.links a.primary:hover{background:var(--signal);color:var(--ground)}
+
+footer{
+  border-top:1px solid var(--rule);
+  padding-block:1.5rem 3rem;
+  font:400 .75rem/1.6 var(--mono);color:var(--muted);
+}
+footer p{margin:0}
+</style>
 </head>
 <body>
 
-</body></html>
+<header class="masthead">
+  <div class="wrap">
+    <p class="wordmark">Ulfat Ismaeel</p>
+    <span class="role">automation developer · Pakistan</span>
+    <span class="live">3 systems running</span>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap">
+  <h1>I build machines that do the work <em>nobody wants to do.</em></h1>
+  <p class="lede">
+    Workflow automation with n8n, REST APIs and AI, self-hosted on my own hardware.
+    Three systems are running as you read this — <strong>one of them for a paying client</strong>,
+    delivering finished video without a human touching it.
+  </p>
+
+  <dl class="stats">
+    <div><dt>Systems live</dt><dd>3</dd></div>
+    <div><dt>Paying clients</dt><dd>1</dd></div>
+    <div><dt>Clip, end to end</dt><dd>18 min</dd></div>
+    <div><dt>Human steps</dt><dd>0</dd></div>
+  </dl>
+
+  <!-- SIGNATURE ELEMENT: the actual pipeline, drawn as it is wired -->
+  <figure class="schematic">
+    <figcaption>
+      <span>Pipeline · <b>Urdu Clip Machine</b></span>
+      <span>11 nodes</span>
+      <span>polls every 60&nbsp;s</span>
+      <span>self-hosted</span>
+    </figcaption>
+    <div class="scroller">
+      <svg viewBox="0 0 900 220" role="img"
+           aria-label="Pipeline diagram: an incoming email is read, the video link is extracted, a render job starts, the job is polled every two minutes until it finishes, then the clip is downloaded, emailed to the client, copied to me, and removed from the render server. A failed render sends an alert instead.">
+        <!-- wires -->
+        <path class="wire" d="M96 60 H150"/>
+        <path class="wire" d="M246 60 H300"/>
+        <path class="wire" d="M396 60 H450"/>
+        <path class="wire" d="M546 60 H600"/>
+        <path class="wire" d="M696 60 H750"/>
+        <!-- retry loop back to the wait -->
+        <path class="wire loop" d="M498 84 V116 H348 V84"/>
+        <!-- failure branch -->
+        <path class="wire" d="M474 84 V150 H600 V132"/>
+        <!-- copy branch -->
+        <path class="wire" d="M672 84 V186 H750 V168"/>
+
+        <!-- travelling signal along the happy path -->
+        <path class="pulse" d="M96 60 H150 M246 60 H300 M396 60 H450 M546 60 H600 M696 60 H750"/>
+
+        <!-- nodes -->
+        <g>
+          <rect class="n-box" x="12" y="40" width="84" height="40"/>
+          <text class="n-label" x="24" y="58">email in</text>
+          <text class="n-sub" x="24" y="71">subject: CLIP</text>
+        </g>
+        <g>
+          <rect class="n-box" x="150" y="40" width="96" height="40"/>
+          <text class="n-label" x="162" y="58">extract link</text>
+          <text class="n-sub" x="162" y="71">regex, 6 forms</text>
+        </g>
+        <g>
+          <rect class="n-box accent" x="300" y="40" width="96" height="40"/>
+          <text class="n-label" x="312" y="58">start render</text>
+          <text class="n-sub" x="312" y="71">POST /clip</text>
+        </g>
+        <g>
+          <rect class="n-box" x="450" y="40" width="96" height="40"/>
+          <text class="n-label" x="462" y="58">poll status</text>
+          <text class="n-sub" x="462" y="71">every 2 min</text>
+        </g>
+        <g>
+          <rect class="n-box" x="600" y="40" width="96" height="40"/>
+          <text class="n-label" x="612" y="58">download</text>
+          <text class="n-sub" x="612" y="71">14.7 MB mp4</text>
+        </g>
+        <g>
+          <rect class="n-box accent" x="750" y="40" width="138" height="40"/>
+          <text class="n-label" x="762" y="58">email to client</text>
+          <text class="n-sub" x="762" y="71">then clean up server</text>
+        </g>
+
+        <g>
+          <rect class="n-box" x="600" y="132" width="120" height="34"/>
+          <text class="n-label" x="612" y="149">render failed</text>
+          <text class="n-sub" x="612" y="161">alert with reason</text>
+        </g>
+        <g>
+          <rect class="n-box" x="750" y="168" width="120" height="34"/>
+          <text class="n-label" x="762" y="185">copy to me</text>
+          <text class="n-sub" x="762" y="197">blocks nothing</text>
+        </g>
+
+        <text class="tick" x="348" y="132">RETRY UNTIL DONE — 6 CHECKS ON A 35-MIN SOURCE</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>Systems</h2>
+    <p>All three are running now, not prototypes.</p>
+  </div>
+
+  <!-- ============ SYSTEM 1 ============ -->
+  <article class="system">
+    <div>
+      <span class="tag">Live · paying client</span>
+      <h3>Urdu Clip Machine</h3>
+      <dl class="qa">
+        <dt>The problem</dt>
+        <dd>A 35-minute talk show contains about one minute worth posting. Finding that minute,
+        recutting it vertical, keeping the speaker centred and captioning it in Urdu takes roughly
+        40 minutes by hand, twice a day.</dd>
+
+        <dt>What it does</dt>
+        <dd>You email a YouTube link. Twelve to eighteen minutes later the finished clip arrives:
+        9:16, face-centred, the channel's news ticker removed, Urdu captions burned in. Nobody
+        opens an editor. Nobody approves anything.</dd>
+
+        <dt>The hard part</dt>
+        <dd>Standard subtitle rendering cannot draw Nastaliq — it produces empty boxes.
+        The captions are rendered as images with a shaping engine and composited onto the frames
+        instead. Glyphs overhang their own measured box in Nastaliq, so the text is drawn from the
+        measured ink bounds, not the canvas edge.</dd>
+      </dl>
+
+      <figure class="specimen">
+        <div class="strip">
+          <p>عمران خان، عاصم منیر، پاکستان تحریکِ انصاف</p>
+        </div>
+        <p class="note">Nastaliq, rendered — not transliterated, not boxes. Per-channel name lists
+        keep proper nouns spelled correctly and cut transcription time.</p>
+      </figure>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Runs on</dt><dd>Docker, self-hosted</dd></div>
+      <div><dt>Orchestration</dt><dd>n8n, 11 nodes</dd></div>
+      <div><dt>Transcription</dt><dd>Whisper, 2 passes</dd></div>
+      <div><dt>Moment picked by</dt><dd>Gemini</dd></div>
+      <div><dt>Video</dt><dd>FFmpeg</dd></div>
+      <div><dt>Face tracking</dt><dd>OpenCV YuNet</dd></div>
+      <div><dt>Captions</dt><dd>Pillow + raqm</dd></div>
+      <div><dt>Measured</dt><dd>18 min end to end</dd></div>
+    </dl>
+  </article>
+
+  <!-- ============ SYSTEM 2 ============ -->
+  <article class="system">
+    <div>
+      <span class="tag">Live</span>
+      <h3>Lead Capture Pipeline</h3>
+      <dl class="qa">
+        <dt>The problem</dt>
+        <dd>Orders arrive as a form, someone retypes them into a spreadsheet, and the ones with a
+        broken email address quietly disappear.</dd>
+
+        <dt>What it does</dt>
+        <dd>Form to validation to spreadsheet to notification email, with the order routed by type.
+        Submissions that fail validation are rejected with an explanation and logged separately,
+        so nothing is lost silently.</dd>
+
+        <dt>Why it matters</dt>
+        <dd>This is the shape most small businesses need first. It was rebuilt from an empty canvas
+        without notes, which is the only real test of whether you understand a workflow.</dd>
+      </dl>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Orchestration</dt><dd>n8n, 12 nodes</dd></div>
+      <div><dt>Intake</dt><dd>Form Trigger</dd></div>
+      <div><dt>Routing</dt><dd>IF + Switch, 3 paths</dd></div>
+      <div><dt>Storage</dt><dd>Google Sheets API</dd></div>
+      <div><dt>Notify</dt><dd>Gmail API</dd></div>
+    </dl>
+  </article>
+
+  <!-- ============ SYSTEM 3 ============ -->
+  <article class="system">
+    <div>
+      <span class="tag">Live · on real hardware</span>
+      <h3>Home Telemetry &amp; Alerts</h3>
+      <dl class="qa">
+        <dt>The problem</dt>
+        <dd>A solar inverter, an air conditioner and two IP cameras on one network, none of them
+        able to tell you when something is wrong.</dd>
+
+        <dt>What it does</dt>
+        <dd>Small HTTP bridges read each device on the LAN and expose one clean endpoint each.
+        n8n polls them and emails when battery voltage drops, load spikes, or a camera stops
+        answering. The air conditioner can be commanded; the inverter is deliberately read-only.</dd>
+
+        <dt>Why read-only</dt>
+        <dd>Because writing to an inverter can damage it, and no automation is worth that.
+        Deciding what a system must never do is part of designing it.</dd>
+      </dl>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Bridges</dt><dd>3, in Docker</dd></div>
+      <div><dt>Written in</dt><dd>Python</dd></div>
+      <div><dt>Devices</dt><dd>inverter, AC, 2 cameras</dd></div>
+      <div><dt>Polling</dt><dd>1–15 min</dd></div>
+      <div><dt>Alerts</dt><dd>Gmail, with the reading</dd></div>
+    </dl>
+  </article>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>How I work</h2>
+    <p>Three habits, and the reason for each.</p>
+  </div>
+  <div class="method">
+    <article>
+      <h3>Evidence, not estimates</h3>
+      <p>Every number on this page came out of a log, a database or a measured run. If I have not
+      checked something, I say so instead of rounding it into a claim.</p>
+    </article>
+    <article>
+      <h3>Built node by node</h3>
+      <p>No imported templates. I can open any workflow here and rebuild it from an empty canvas,
+      which means I can also repair it when it breaks at an awkward hour.</p>
+    </article>
+    <article>
+      <h3>The failure path first</h3>
+      <p>Every pipeline here has a route for the run that fails, and it reports the actual reason.
+      A system that only works when everything is fine is not finished.</p>
+    </article>
+  </div>
+</section>
+
+<section class="contact wrap">
+  <h2>Does something in your business get done by hand every day?</h2>
+  <p>That is the kind of work I take. Tell me the steps you repeat and I will tell you honestly
+  whether it can be automated, and what it would take.</p>
+  <div class="links">
+    <a class="primary" href="mailto:ulfatismaeel32@gmail.com">Email me</a>
+    <a href="https://www.linkedin.com/in/ulfat-ismaeel-automation" rel="me">LinkedIn</a>
+    <a href="https://github.com/ulfatismaeel" rel="me">GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p>Building automation systems since July 2026. Every system on this page is running today.</p>
+</footer>
+
+</body>
+</html>
