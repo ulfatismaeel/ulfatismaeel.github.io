@@ -360,7 +360,7 @@ footer p{margin:0}
   <dl class="stats">
     <div><dt>Systems live</dt><dd>3</dd></div>
     <div><dt>Paying clients</dt><dd>1</dd></div>
-    <div><dt>Clip, end to end</dt><dd>18 min</dd></div>
+    <div><dt>Source cut down</dt><dd>30 min → 60 s</dd></div>
     <div><dt>Human steps</dt><dd>0</dd></div>
   </dl>
 
@@ -415,7 +415,7 @@ footer p{margin:0}
         <g>
           <rect class="n-box" x="600" y="40" width="96" height="40"/>
           <text class="n-label" x="612" y="58">download</text>
-          <text class="n-sub" x="612" y="71">14.7 MB mp4</text>
+          <text class="n-sub" x="612" y="71">11 MB mp4</text>
         </g>
         <g>
           <rect class="n-box accent" x="750" y="40" width="138" height="40"/>
@@ -458,9 +458,9 @@ footer p{margin:0}
         40 minutes by hand, twice a day.</dd>
 
         <dt>What it does</dt>
-        <dd>You email a YouTube link. Twelve to eighteen minutes later the finished clip arrives:
-        3:4, face-centred, the channel's news ticker removed, Urdu captions burned in. Nobody
-        opens an editor. Nobody approves anything.</dd>
+        <dd>You email a YouTube link and the timestamp you want. The finished clip comes back by
+        email: 3:4, face-centred, the channel's news ticker removed, Urdu captions burned in.
+        Nobody opens an editor. Nobody approves anything.</dd>
 
         <dt>The hard part</dt>
         <dd>Standard subtitle rendering cannot draw Nastaliq — it produces empty boxes.
@@ -518,7 +518,7 @@ footer p{margin:0}
       <div><dt>Video</dt><dd>FFmpeg</dd></div>
       <div><dt>Face tracking</dt><dd>OpenCV YuNet</dd></div>
       <div><dt>Captions</dt><dd>Pillow + raqm</dd></div>
-      <div><dt>Measured</dt><dd>18 min end to end</dd></div>
+      <div><dt>Delivered</dt><dd>1080×1440 · 60.0 s · 11.0 MB</dd></div>
     </dl>
   </article>
 
@@ -544,7 +544,7 @@ footer p{margin:0}
     </div>
 
     <dl class="spec">
-      <div><dt>Orchestration</dt><dd>n8n, 12 nodes</dd></div>
+      <div><dt>Orchestration</dt><dd>n8n, 14 nodes</dd></div>
       <div><dt>Intake</dt><dd>Form Trigger</dd></div>
       <div><dt>Routing</dt><dd>IF + Switch, 3 paths</dd></div>
       <div><dt>Storage</dt><dd>Google Sheets API</dd></div>
@@ -564,8 +564,9 @@ footer p{margin:0}
 
         <dt>What it does</dt>
         <dd>Small HTTP bridges read each device on the LAN and expose one clean endpoint each.
-        n8n polls them and emails when battery voltage drops, load spikes, or a camera stops
-        answering. The air conditioner can be commanded; the inverter is deliberately read-only.</dd>
+        n8n polls them and emails when battery voltage drops, when load spikes, or when the
+        voltage reads wrong. The air-conditioner controller and the camera watchdog are built and
+        tested but currently switched off; the inverter is deliberately read-only.</dd>
 
         <dt>Why read-only</dt>
         <dd>Because writing to an inverter can damage it, and no automation is worth that.
