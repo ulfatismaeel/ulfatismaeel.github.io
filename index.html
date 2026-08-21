@@ -248,6 +248,54 @@ a{color:inherit}
   font:400 .75rem/1.5 var(--mono);color:var(--muted);
 }
 
+/* ---------- proof: the same second, in and out ---------- */
+.proof{
+  margin:1.25rem 0 0;border:1px solid var(--rule);
+  background:var(--panel);
+}
+.proof > figcaption{
+  padding:.6rem .8rem;border-bottom:1px solid var(--rule-soft);
+  font:500 .6875rem/1.4 var(--mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);
+}
+.proof-pair{
+  display:grid;gap:.8rem;padding:.8rem;
+  grid-template-columns:1fr;align-items:start;
+}
+@media (min-width:38rem){
+  .proof-pair{grid-template-columns:minmax(0,1fr) auto minmax(0,.62fr)}
+}
+.proof-cell{min-width:0}
+.proof-cell img{
+  display:block;width:100%;height:auto;
+  border:1px solid var(--rule-soft);
+}
+.proof-label{
+  display:inline-block;margin:0 0 .45rem;
+  font:500 .6875rem/1 var(--mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--signal);
+}
+.proof-meta{
+  margin:.5rem 0 0;
+  font:400 .75rem/1.55 var(--mono);color:var(--muted);
+}
+.proof-arrow{
+  align-self:center;color:var(--signal);
+  font:400 1.5rem/1 var(--body);text-align:center;
+  transform:rotate(90deg);
+}
+@media (min-width:38rem){ .proof-arrow{transform:none} }
+.proof video{
+  display:block;width:100%;max-width:22rem;height:auto;
+  margin:.8rem auto 0;background:#000;
+  border:1px solid var(--rule-soft);
+}
+.proof .note{
+  border-top:1px solid var(--rule-soft);
+  padding:.6rem .8rem;margin:.8rem 0 0;
+  font:400 .75rem/1.55 var(--mono);color:var(--muted);
+}
+
 /* ---------- method ---------- */
 .method{
   display:grid;gap:1px;background:var(--rule-soft);
@@ -405,13 +453,13 @@ footer p{margin:0}
       <h3>Urdu Clip Machine</h3>
       <dl class="qa">
         <dt>The problem</dt>
-        <dd>A 35-minute talk show contains about one minute worth posting. Finding that minute,
+        <dd>A half-hour talk show contains about one minute worth posting. Finding that minute,
         recutting it vertical, keeping the speaker centred and captioning it in Urdu takes roughly
         40 minutes by hand, twice a day.</dd>
 
         <dt>What it does</dt>
         <dd>You email a YouTube link. Twelve to eighteen minutes later the finished clip arrives:
-        9:16, face-centred, the channel's news ticker removed, Urdu captions burned in. Nobody
+        3:4, face-centred, the channel's news ticker removed, Urdu captions burned in. Nobody
         opens an editor. Nobody approves anything.</dd>
 
         <dt>The hard part</dt>
@@ -428,9 +476,40 @@ footer p{margin:0}
         <p class="note">Nastaliq, rendered — not transliterated, not boxes. Per-channel name lists
         keep proper nouns spelled correctly and cut transcription time.</p>
       </figure>
+
+      <figure class="proof">
+        <figcaption>One second of one real job — 20 August 2026</figcaption>
+        <div class="proof-pair">
+          <div class="proof-cell">
+            <span class="proof-label">In · source</span>
+            <img src="proof-source.jpg" width="1280" height="720" loading="lazy"
+                 alt="A frame from the source broadcast: 16:9, the speaker small and left of centre,
+                      a countdown graphic box covering the right third, a two-line news ticker across
+                      the bottom and a channel roundel in the top corner.">
+            <p class="proof-meta">1280×720 · 29 min 53 s<br>ticker, countdown box, channel roundel<br>speaker small, off centre</p>
+          </div>
+          <div class="proof-arrow" aria-hidden="true">→</div>
+          <div class="proof-cell">
+            <span class="proof-label">Out · delivered</span>
+            <img src="proof-output.jpg" width="720" height="960" loading="lazy"
+                 alt="The same instant after processing: 3:4, the speaker centred and much larger,
+                      no ticker and no countdown box, one line of Urdu Nastaliq caption burned in
+                      above the channel wordmark.">
+            <p class="proof-meta">1080×1440 · 60 s<br>ticker and box gone<br>speaker centred, Urdu caption burned in</p>
+          </div>
+        </div>
+        <video controls preload="none" playsinline poster="clip-poster.jpg">
+          <source src="clip-gill-speaking.mp4" type="video/mp4">
+          Your browser cannot play this clip.
+        </video>
+        <p class="note">Both frames are the same instant — t = 25 s — of the same run, taken from the
+        source file and from the file the client received. Nothing was staged for this page.
+        Clip made for <strong>Gill Speaking</strong> (Dr Shahbaz Gill) and shown with his permission.</p>
+      </figure>
     </div>
 
     <dl class="spec">
+      <div><dt>Client</dt><dd>Gill Speaking</dd></div>
       <div><dt>Runs on</dt><dd>Docker, self-hosted</dd></div>
       <div><dt>Orchestration</dt><dd>n8n, 11 nodes</dd></div>
       <div><dt>Transcription</dt><dd>Whisper, 2 passes</dd></div>
